@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGD ARAFAT EXCLUSIVE</title>
+    <style>
+        /* মূল পেজ ডিজাইন - ডার্ক থিম */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212; /* গাঢ় কালো ব্যাকগ্রাউন্ড */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
 
+        /* কন্টেইনার বক্স */
+        .container {
+            background: #1e1e1e; /* হালকা কালো বক্স */
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 2px solid #333; /* বর্ডার */
+            width: 380px;
+        }
+
+        /* বড় ডেভেলপারের নাম - গোল্ডেন কালার */
+        .dev-name {
+            font-size: 42px; /* অনেক বড় সাইজ */
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffdf00, #ffaf00, #ffdf00); /* গোল্ডেন গ্রাডিয়েন্ট */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* সুন্দর পাসওয়ার্ড বক্স */
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="password"]:focus {
+            border-color: #ffaf00; /* ফোকাস করলে গোল্ডেন বর্ডার */
+        }
+
+        /* লগইন বাটন - গোল্ডেন */
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #ffaf00, #ffdf00);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(255, 175, 0, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 175, 0, 0.5);
+        }
+
+        /* গেট মেইল বাটন - ভিন্ন রঙ */
+        .mail-btn {
+            background: linear-gradient(45deg, #2ecc71, #27ae60); /* সবুজ গ্রাডিয়েন্ট */
+            color: white;
+            text-decoration: none;
+            display: none; /* শুরুতে হাইড */
+            line-height: 1; /* বাটন হাইট ঠিক করার জন্য */
+        }
+
+        .mail-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
+        }
+
+        /* এরর মেসেজ */
+        #error-msg {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        /* সাকসেস মেসেজ */
+        #success-msg {
+            color: #2ecc71;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span class="dev-name">DGD ARAFAT</span>
+    <div class="sub-text">SECURE MAIL ACCESS SYSTEM</div>
+    
+    <div id="login-section">
+        <input type="password" id="passInput" placeholder="Enter Password">
+        <p id="error-msg">Incorrect Password! Try Again.</p>
+        <button class="btn login-btn" onclick="checkPassword()">Login</button>
+    </div>
+
+    <div id="mail-section">
+        <p id="success-msg">Access Granted!</p>
+        <a href="https://tempail.com/en/" target="_blank" class="btn mail-btn" id="mailBtn">GET MAIL</a>
+    </div>
+</div>
+
+<script>
+    function checkPassword() {
+        const pass = document.getElementById('passInput').value;
+        const correctPass = "dgd_arafat1";
+        
+        // এলিমেন্টগুলো ধরা
+        const loginSection = document.getElementById('login-section');
+        const mailSection = document.getElementById('mail-section');
+        const mailBtn = document.getElementById('mailBtn');
+        const errorMsg = document.getElementById('error-msg');
+        const successMsg = document.getElementById('success-msg');
+
+        if (pass === correctPass) {
+            // পাসওয়ার্ড মিললে
+            loginSection.style.display = "none";
+            successMsg.style.display = "block";
+            mailBtn.style.display = "block"; // বাটন দেখাবে
+        } else {
+            // পাসওয়ার্ড না মিললে
+            errorMsg.style.display = "block";
+            document.getElementById('passInput').value = ""; // বক্স খালি করা
+        }
+    }
+</script>
+
+</body>
+</html>
